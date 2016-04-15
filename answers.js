@@ -106,4 +106,30 @@ function countVowels(string) {
     }
 }
 
-console.log(countVowels(sentence));
+//console.log(countVowels(sentence));
+
+//Exercise 6
+//Write a function called highLow that takes an array of numbers, and returns an object with a property highest containing the highest number, and a property lowest containing the lowest number, using Array.prototype.reduce.
+//For example, starting with [1, -10, 20, 40, 5], your function should return {highest: 40, lowest: -10}.
+//Hint: Javascript has a special value called Infinity, which is higher than any other number. See if you can initialize your reduce accumulator with Infinity and -Infinity :)
+
+var arr = [1, -10, 20, 40, 5];
+
+var obj = {
+    highest: -Infinity,
+    lowest: Infinity
+};
+
+function highLow (arr){
+    return arr.reduce(function(acc, curr){
+        if (acc.highest < curr) {
+            acc.highest = curr;
+        }
+        if (acc.lowest > curr){
+            acc.lowest = curr;
+        }
+        return acc;
+}, obj);
+}
+
+//console.log(highLow(arr));
