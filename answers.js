@@ -54,10 +54,31 @@ function func (thing){
     if (thing){
         return thing;
     }
-};
+}
  
 function filterArray (array, func){
-    return array.filter(func)
-};
+    return array.filter(func);
+}
 
 //console.log(filterArray(things, func));
+
+//Exercise 4
+// Write a function called longestWord that takes a string as argument, and returns the longest word in the string. You should use Array.prototype.reduce to do your work.
+//Hint: You can use String.prototype.split to split the string into an array of words.
+
+var string = "I have big words like abracadabra and small words like boo.";
+
+function longestWord (str){
+    
+    var strArray = str.split(" ");
+    
+    return strArray.reduce(function(prev, curr){
+        if (curr.length >= prev.length){
+            prev = curr;
+        }
+        return prev;
+    });
+    
+}
+
+console.log(longestWord(string));
