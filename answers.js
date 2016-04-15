@@ -221,9 +221,26 @@ var people = [
 
 function peopleById (array){
     return array.reduce(function(accObj, currObj){
-        accObj[currObj.id] = currObj
+        accObj[currObj.id] = currObj;
         return accObj;
     }, {});   
 }
 
 //console.log(peopleById(people));
+
+//Exercise 10
+
+
+function peopleByFirstName (array){
+    return array.reduce(function(accObj, currObj){
+        if(!accObj[currObj.firstName]){
+            accObj[currObj.firstName] = [];
+            accObj[currObj.firstName].push(currObj)
+        } else {
+            accObj[currObj.firstName].push(currObj)
+        }
+        return accObj;
+    }, {});
+}
+
+console.log(peopleByFirstName(people));
