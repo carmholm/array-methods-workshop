@@ -93,9 +93,9 @@ var vowels = ["a", "e", "i", "o", "u"];
 var sentence = "The cat jumped over the moon";
 
 function countVowels(string) {
-    
+
     var newString = string.split("");
-    
+
     return newString.reduce(func, 0);
 
     function func(prev, curr) {
@@ -120,16 +120,16 @@ var obj = {
     lowest: Infinity
 };
 
-function highLow (arr){
-    return arr.reduce(function(acc, curr){
+function highLow(arr) {
+    return arr.reduce(function(acc, curr) {
         if (acc.highest < curr) {
             acc.highest = curr;
         }
-        if (acc.lowest > curr){
+        if (acc.lowest > curr) {
             acc.lowest = curr;
         }
         return acc;
-}, obj);
+    }, obj);
 }
 
 //console.log(highLow(arr));
@@ -153,18 +153,44 @@ var obj1 = {
     secondLowest: Infinity
 };
 
-function highLowTwo (arr){
-    return arr.reduce(function(acc, curr){
+function highLowTwo(arr) {
+    return arr.reduce(function(acc, curr) {
         if (acc.highest < curr) {
             acc.secondHighest = acc.highest,
-            acc.highest = curr;
+                acc.highest = curr;
         }
-        if (acc.lowest > curr){
+        if (acc.lowest > curr) {
             acc.secondLowest = acc.lowest,
-            acc.lowest = curr;
+                acc.lowest = curr;
         }
         return acc;
-}, obj1);
+    }, obj1);
 }
 
 //console.log(highLowTwo(arr1));
+
+//Exercise 8
+//Write a function called countChars that takes a string, and returns an object where the keys are letters, and the value is the number of times that letter appears.
+
+
+var newStr = "Hello worldddddwowowowoowowow";
+
+var newStrEdit = newStr.toLowerCase().split("").filter(function(lett) {
+    if (lett !== " ") {
+        return lett;
+    }
+});
+
+function countChars(str) {
+    return str.reduce(function(acc, next) {
+        if (acc[next]) {
+            acc[next]++;
+        }
+        else {
+            acc[next] = 1;
+        }
+        return acc;
+    }, {});
+}
+
+//console.log(countChars(newStrEdit));
